@@ -260,9 +260,6 @@ const handleLogoClick = () => {
         const userItem = userTemplate.content.cloneNode(true);
         const listItem = userItem.querySelector(".popup__list-item");
         listItem.textContent = `${userData.name} (${userData.cardsCount})`;
-        if (userData.avatar) {
-          listItem.style.backgroundImage = `url(${userData.avatar})`;
-        }
         usersStatsModalUserList.append(userItem);
       });
 
