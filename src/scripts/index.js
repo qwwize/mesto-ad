@@ -99,6 +99,7 @@ const handleProfileFormSubmit = (evt) => {
       profileDescription.textContent = userData.about;
       closeModalWindow(profileFormModalWindow);
     })
+    .catch(() => {})
     .finally(() => {
       submitButton.textContent = originalText;
       submitButton.disabled = false;
@@ -118,6 +119,7 @@ const handleAvatarFromSubmit = (evt) => {
       avatarForm.reset();
       closeModalWindow(avatarFormModalWindow);
     })
+    .catch(() => {})
     .finally(() => {
       submitButton.textContent = originalText;
       submitButton.disabled = false;
@@ -150,6 +152,7 @@ const handleCardFormSubmit = (evt) => {
       cardForm.reset();
       closeModalWindow(cardFormModalWindow);
     })
+    .catch(() => {})
     .finally(() => {
       submitButton.textContent = originalText;
       submitButton.disabled = false;
@@ -161,7 +164,8 @@ const handleLikeCard = (cardID, isLiked, likeButton, likeCountElement) => {
     .then((updatedCard) => {
       likeButton.classList.toggle("card__like-button_is-active");
       likeCountElement.textContent = updatedCard.likes.length;
-    });
+    })
+    .catch(() => {});
 };
 
 const handleDeleteCardClick = (cardID, cardElement) => {
@@ -184,6 +188,7 @@ const handleRemoveCardFormSubmit = (evt) => {
       cardToDelete = null;
       cardElementToDelete = null;
     })
+    .catch(() => {})
     .finally(() => {
       submitButton.textContent = originalText;
       submitButton.disabled = false;
@@ -248,7 +253,8 @@ const handleLogoClick = () => {
       });
 
       openModalWindow(usersStatsModalWindow);
-    });
+    })
+    .catch(() => {});
 };
 
 profileForm.addEventListener("submit", handleProfileFormSubmit);
@@ -298,7 +304,8 @@ Promise.all([getCardList(), getUserInfo()])
         )
       );
     });
-  });
+  })
+  .catch(() => {});
 
 const allPopups = document.querySelectorAll(".popup");
 allPopups.forEach((popup) => {
