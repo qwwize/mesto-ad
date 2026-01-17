@@ -20,17 +20,13 @@ export const createCardElement = (
   cardImage.alt = cardData.name;
   cardElement.querySelector(".card__title").textContent = cardData.name;
 
-  // Отображение количества лайков
   const likesCount = cardData.likes ? cardData.likes.length : 0;
   likeCountElement.textContent = likesCount;
 
-  // Проверка, лайкнул ли текущий пользователь карточку
   const isLiked = cardData.likes && cardData.likes.some(like => like._id === currentUserId);
   if (isLiked) {
     likeButton.classList.add("card__like-button_is-active");
   }
-
-  // Показываем иконку удаления только для своих карточек
   if (cardData.owner._id !== currentUserId) {
     deleteButton.remove();
   }
