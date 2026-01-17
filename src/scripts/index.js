@@ -196,8 +196,12 @@ const handleRemoveCardFormSubmit = (evt) => {
 };
 
 const handleLogoClick = () => {
-  usersStatsModalInfoList.innerHTML = "";
-  usersStatsModalUserList.innerHTML = "";
+  while (usersStatsModalInfoList.firstChild) {
+    usersStatsModalInfoList.removeChild(usersStatsModalInfoList.firstChild);
+  }
+  while (usersStatsModalUserList.firstChild) {
+    usersStatsModalUserList.removeChild(usersStatsModalUserList.firstChild);
+  }
 
   getCardList()
     .then((cards) => {
