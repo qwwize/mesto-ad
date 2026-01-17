@@ -209,7 +209,7 @@ const handleLogoClick = () => {
         new Date(b.createdAt) - new Date(a.createdAt)
       );
 
-      usersStatsModalTitle.textContent = "Статистика";
+      usersStatsModalTitle.textContent = "Статистика пользователей";
 
       usersStatsModalInfoList.append(
         createInfoString("Всего карточек:", cards.length.toString())
@@ -243,7 +243,17 @@ const handleLogoClick = () => {
         usersMap.get(userId).cardsCount++;
       });
 
-      usersStatsModalText.textContent = "Пользователи:";
+      const totalUsers = usersMap.size;
+      const maxCards = Math.max(...Array.from(usersMap.values()).map(user => user.cardsCount));
+
+      usersStatsModalInfoList.append(
+        createInfoString("Всего пользователей:", totalUsers.toString())
+      );
+      usersStatsModalInfoList.append(
+        createInfoString("Максимум карточек от одного:", maxCards.toString())
+      );
+
+      usersStatsModalText.textContent = "Все пользователи:";
 
       const userTemplate = document.getElementById("popup-info-user-preview-template");
       usersMap.forEach((userData) => {
