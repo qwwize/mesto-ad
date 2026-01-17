@@ -1,0 +1,14 @@
+{
+  "name": "mesto-ad",
+  "version": "1.0.0",
+  "description": "Mesto project with form validation and Vite build",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
+
